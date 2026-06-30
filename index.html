@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTU • Medical Training Booking Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <title>MS&amp;T • Medical Services &amp; Training Booking Portal</title>
+    
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
@@ -131,8 +131,8 @@
                         <i class="fa-solid fa-heart-pulse text-white text-3xl"></i>
                     </div>
                     <div>
-                        <h1 class="font-display text-3xl tracking-tighter font-semibold text-slate-900">MTU</h1>
-                        <p class="text-[10px] text-teal-700 -mt-1 font-medium tracking-[1.5px]">MEDICAL TRAINING UNIT</p>
+                        <h1 class="font-display text-3xl tracking-tighter font-semibold text-slate-900">MS&amp;T</h1>
+                        <p class="text-[10px] text-teal-700 -mt-1 font-medium tracking-[1.5px]">MEDICAL SERVICES &amp; TRAINING</p>
                     </div>
                     <div class="ml-3 pl-3 border-l border-slate-200">
                         <p class="text-sm font-semibold text-slate-700">Course Booking Portal</p>
@@ -150,8 +150,7 @@
                         </div>
                     </div>
                     
-                    <button onclick="showAdminLogin()" 
-                            class="flex items-center gap-x-2 px-4 py-2 text-sm font-medium rounded-3xl border border-slate-300 hover:bg-slate-100 transition-colors">
+                    <button class="flex items-center gap-x-2 px-4 py-2 text-sm font-medium rounded-3xl border border-slate-300 hover:bg-slate-100 transition-colors">
                         <i class="fa-solid fa-user-shield mr-1.5"></i>
                         <span>Admin</span>
                     </button>
@@ -161,18 +160,15 @@
             <!-- Navigation Tabs -->
             <div class="px-8 border-t border-slate-100">
                 <div class="flex gap-x-1 -mb-px">
-                    <button onclick="switchTab(0)" id="tab-0"
-                            class="nav-tab active px-5 py-3 text-sm font-semibold flex items-center gap-x-2 text-teal-700 border-b-2 border-teal-700">
+                    <button id="tab-0" class="nav-tab active px-5 py-3 text-sm font-semibold flex items-center gap-x-2 text-teal-700 border-b-2 border-teal-700">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         <span>Upcoming Sessions</span>
                     </button>
-                    <button onclick="switchTab(1)" id="tab-1"
-                            class="nav-tab px-5 py-3 text-sm font-semibold flex items-center gap-x-2 text-slate-600 hover:text-slate-800">
+                    <button id="tab-1" class="nav-tab px-5 py-3 text-sm font-semibold flex items-center gap-x-2 text-slate-600 hover:text-slate-800">
                         <i class="fa-solid fa-user-plus w-4"></i>
                         <span>My Bookings</span>
                     </button>
-                    <button onclick="switchTab(2)" id="tab-2"
-                            class="nav-tab px-5 py-3 text-sm font-semibold flex items-center gap-x-2 text-slate-600 hover:text-slate-800">
+                    <button id="tab-2" class="nav-tab px-5 py-3 text-sm font-semibold flex items-center gap-x-2 text-slate-600 hover:text-slate-800">
                         <i class="fa-solid fa-chart-line w-4"></i>
                         <span>Reports</span>
                     </button>
@@ -192,19 +188,16 @@
                 </div>
                 <div class="flex items-center gap-x-3">
                     <div class="bg-white border border-slate-200 rounded-3xl px-1 py-1 flex items-center text-sm shadow-sm">
-                        <button onclick="toggleViewMode('list')" id="btn-list-view"
-                                class="px-4 py-1.5 rounded-3xl flex items-center gap-x-2 text-sm font-medium bg-teal-600 text-white">
+                        <button id="btn-list-view" class="px-4 py-1.5 rounded-3xl flex items-center gap-x-2 text-sm font-medium bg-teal-600 text-white">
                             <i class="fa-solid fa-list"></i>
                             <span>List</span>
                         </button>
-                        <button onclick="toggleViewMode('calendar')" id="btn-calendar-view"
-                                class="px-4 py-1.5 rounded-3xl flex items-center gap-x-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
+                        <button id="btn-calendar-view" class="px-4 py-1.5 rounded-3xl flex items-center gap-x-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
                             <i class="fa-solid fa-calendar"></i>
                             <span>Calendar</span>
                         </button>
                     </div>
-                    <button onclick="resetFilters()" 
-                            class="px-4 py-2 text-sm flex items-center gap-x-2 rounded-3xl border border-slate-300 hover:bg-white transition-colors">
+                    <button class="px-4 py-2 text-sm flex items-center gap-x-2 rounded-3xl border border-slate-300 hover:bg-white transition-colors">
                         <i class="fa-solid fa-undo text-xs"></i>
                         <span class="font-medium">Clear Filters</span>
                     </button>
@@ -220,9 +213,7 @@
                         <label class="block text-xs font-semibold text-slate-500 mb-1.5 tracking-wider">SEARCH</label>
                         <div class="relative">
                             <i class="fa-solid fa-search absolute left-4 top-3 text-slate-400"></i>
-                            <input id="search-input" type="text" placeholder="Search course, venue or instructor..." 
-                                   oninput="debounceFilter()"
-                                   class="w-full pl-11 pr-4 py-2.5 text-sm border border-slate-300 rounded-2xl focus:outline-none focus:border-teal-500">
+                            <input id="search-input" type="text" placeholder="Search course, venue or instructor..." class="w-full pl-11 pr-4 py-2.5 text-sm border border-slate-300 rounded-2xl focus:outline-none focus:border-teal-500">
                         </div>
                     </div>
                     
@@ -238,19 +229,16 @@
                     <div class="md:col-span-3 grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-semibold text-slate-500 mb-1.5 tracking-wider">FROM DATE</label>
-                            <input id="date-from" type="date" onchange="applyFilters()" 
-                                   class="w-full text-sm border border-slate-300 rounded-2xl px-3 py-2 focus:outline-none focus:border-teal-500">
+                            <input id="date-from" type="date" class="w-full text-sm border border-slate-300 rounded-2xl px-3 py-2 focus:outline-none focus:border-teal-500">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold text-slate-500 mb-1.5 tracking-wider">TO DATE</label>
-                            <input id="date-to" type="date" onchange="applyFilters()" 
-                                   class="w-full text-sm border border-slate-300 rounded-2xl px-3 py-2 focus:outline-none focus:border-teal-500">
+                            <input id="date-to" type="date" class="w-full text-sm border border-slate-300 rounded-2xl px-3 py-2 focus:outline-none focus:border-teal-500">
                         </div>
                     </div>
                     
                     <div class="md:col-span-2 flex justify-end">
-                        <button onclick="applyFilters()" 
-                                class="w-full md:w-auto px-6 py-2.5 bg-teal-700 hover:bg-teal-800 transition-colors text-white text-sm font-semibold rounded-2xl flex items-center justify-center gap-x-2">
+                        <button class="w-full md:w-auto px-6 py-2.5 bg-teal-700 hover:bg-teal-800 transition-colors text-white text-sm font-semibold rounded-2xl flex items-center justify-center gap-x-2">
                             <i class="fa-solid fa-filter"></i>
                             <span>Apply</span>
                         </button>
@@ -263,16 +251,15 @@
                 <div class="bg-white border border-slate-200 rounded-3xl p-5 shadow-sm">
                     <div class="flex items-center justify-between mb-4 px-2">
                         <div class="flex items-center gap-x-3">
-                            <button onclick="prevMonth()" class="w-9 h-9 flex items-center justify-center hover:bg-slate-100 rounded-2xl text-slate-600">
+                            <button class="w-9 h-9 flex items-center justify-center hover:bg-slate-100 rounded-2xl text-slate-600">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </button>
                             <h3 id="calendar-month" class="font-semibold text-xl w-44 text-center"></h3>
-                            <button onclick="nextMonth()" class="w-9 h-9 flex items-center justify-center hover:bg-slate-100 rounded-2xl text-slate-600">
+                            <button class="w-9 h-9 flex items-center justify-center hover:bg-slate-100 rounded-2xl text-slate-600">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </button>
                         </div>
-                        <button onclick="goToCurrentMonth()" 
-                                class="text-xs px-3 py-1.5 rounded-2xl border border-slate-300 text-slate-600 hover:bg-slate-50 flex items-center gap-x-1">
+                        <button class="text-xs px-3 py-1.5 rounded-2xl border border-slate-300 text-slate-600 hover:bg-slate-50 flex items-center gap-x-1">
                             <i class="fa-solid fa-calendar-day text-xs"></i>
                             <span>Today</span>
                         </button>
@@ -313,7 +300,7 @@
                 <div id="no-results" class="hidden text-center py-12">
                     <i class="fa-solid fa-calendar-xmark text-5xl text-slate-300 mb-4"></i>
                     <p class="font-medium text-slate-600">No sessions match your filters</p>
-                    <button onclick="resetFilters()" class="mt-3 text-teal-700 text-sm font-medium">Clear all filters</button>
+                    <button class="mt-3 text-teal-700 text-sm font-medium">Clear all filters</button>
                 </div>
             </div>
         </div>
@@ -328,12 +315,10 @@
                     <div class="flex gap-x-3">
                         <div class="flex-1">
                             <label class="text-xs font-semibold tracking-wider text-slate-500 block mb-1.5">EMAIL ADDRESS</label>
-                            <input id="my-email-input" type="email" placeholder="your.name@hospital.sg" 
-                                   class="w-full border border-slate-300 focus:border-teal-600 px-4 py-3 rounded-2xl text-sm">
+                            <input id="my-email-input" type="email" placeholder="your.name@hospital.sg" class="w-full border border-slate-300 focus:border-teal-600 px-4 py-3 rounded-2xl text-sm">
                         </div>
                         <div class="pt-6">
-                            <button onclick="loadMyBookings()" 
-                                    class="px-8 py-3 bg-teal-700 hover:bg-teal-800 text-white rounded-2xl font-semibold text-sm flex items-center gap-x-2">
+                            <button class="px-8 py-3 bg-teal-700 hover:bg-teal-800 text-white rounded-2xl font-semibold text-sm flex items-center gap-x-2">
                                 <i class="fa-solid fa-search"></i>
                                 <span>Find My Bookings</span>
                             </button>
@@ -439,8 +424,7 @@
                     </div>
                     
                     <div class="mt-6 pt-4 border-t">
-                        <button onclick="switchTab(0); document.getElementById('search-input').focus()" 
-                                class="text-sm w-full py-2.5 border border-teal-700 text-teal-700 hover:bg-teal-50 rounded-2xl font-medium flex items-center justify-center gap-x-2">
+                        <button class="text-sm w-full py-2.5 border border-teal-700 text-teal-700 hover:bg-teal-50 rounded-2xl font-medium flex items-center justify-center gap-x-2">
                             <span>Browse all available sessions</span>
                         </button>
                     </div>
@@ -450,14 +434,14 @@
     </div>
 
     <!-- Booking Modal -->
-    <div id="booking-modal" onclick="if (event.target.id === 'booking-modal') hideBookingModal()" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="modal bg-white w-full max-w-lg rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+    <div id="booking-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div class="modal bg-white w-full max-w-lg rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
             <div class="px-6 pt-5 pb-4 border-b flex items-center justify-between bg-slate-50">
                 <div>
                     <h3 class="font-semibold text-xl" id="modal-course-name"></h3>
                     <p class="text-sm text-slate-600" id="modal-session-info"></p>
                 </div>
-                <button onclick="hideBookingModal()" class="text-slate-400 hover:text-slate-600 w-9 h-9 flex items-center justify-center">
+                <button class="text-slate-400 hover:text-slate-600 w-9 h-9 flex items-center justify-center">
                     <i class="fa-solid fa-times text-xl"></i>
                 </button>
             </div>
@@ -497,7 +481,7 @@
                             <option value="Ambulance / Paramedic">
                             <option value="Training &amp; Education">
                             <option value="Other">
-                        </datalist>
+                        </option></datalist>
                     </div>
                 </div>
                 
@@ -506,8 +490,7 @@
                         <i class="fa-solid fa-check-circle"></i>
                         <span id="modal-slots-left" class="font-semibold"></span>
                     </div>
-                    <button onclick="fillDemoBookingData()" 
-                            class="text-teal-600 hover:text-teal-700 text-xs flex items-center gap-x-1 font-medium">
+                    <button class="text-teal-600 hover:text-teal-700 text-xs flex items-center gap-x-1 font-medium">
                         <i class="fa-solid fa-magic"></i>
                         <span>Fill demo data</span>
                     </button>
@@ -515,10 +498,8 @@
             </div>
             
             <div class="px-6 py-4 bg-slate-50 border-t flex gap-x-3">
-                <button onclick="hideBookingModal()" 
-                        class="flex-1 py-3 text-sm font-semibold border border-slate-300 rounded-2xl hover:bg-white transition-colors">Cancel</button>
-                <button onclick="confirmBooking()" 
-                        class="flex-1 py-3 text-sm font-semibold bg-teal-700 hover:bg-teal-800 text-white rounded-2xl transition-colors">Confirm Booking</button>
+                <button class="flex-1 py-3 text-sm font-semibold border border-slate-300 rounded-2xl hover:bg-white transition-colors">Cancel</button>
+                <button class="flex-1 py-3 text-sm font-semibold bg-teal-700 hover:bg-teal-800 text-white rounded-2xl transition-colors">Confirm Booking</button>
             </div>
         </div>
     </div>
@@ -527,8 +508,8 @@
     <div id="toast-container" class="fixed bottom-5 right-5 z-[200] flex flex-col gap-y-2"></div>
 
     <!-- Admin Panel Modal -->
-    <div id="admin-modal" onclick="if (event.target.id === 'admin-modal') hideAdminModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur z-[150] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="modal bg-white w-full max-w-7xl max-h-[92vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+    <div id="admin-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur z-[150] flex items-center justify-center p-4">
+        <div class="modal bg-white w-full max-w-7xl max-h-[92vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
             
             <!-- Admin Header -->
             <div class="px-7 py-4 border-b flex items-center justify-between bg-slate-900 text-white">
@@ -540,11 +521,11 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-x-2">
-                    <button onclick="resetDemoData()" class="text-xs flex items-center gap-x-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 transition-colors rounded-2xl">
+                    <button class="text-xs flex items-center gap-x-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 transition-colors rounded-2xl">
                         <i class="fa-solid fa-sync-alt"></i>
                         <span>Reset Demo Data</span>
                     </button>
-                    <button onclick="hideAdminModal()" class="w-9 h-9 flex items-center justify-center text-slate-400 hover:text-white">
+                    <button class="w-9 h-9 flex items-center justify-center text-slate-400 hover:text-white">
                         <i class="fa-solid fa-times text-2xl"></i>
                     </button>
                 </div>
@@ -573,20 +554,16 @@
                 
                 <!-- Admin Sub Navigation -->
                 <div class="flex border-b mb-5">
-                    <button onclick="switchAdminSubTab(0)" id="admin-subtab-0"
-                            class="admin-subtab active px-5 py-2 text-sm font-semibold border-b-2 border-teal-700 text-teal-700">Manage Sessions</button>
-                    <button onclick="switchAdminSubTab(1)" id="admin-subtab-1"
-                            class="admin-subtab px-5 py-2 text-sm font-semibold text-slate-600">All Bookings</button>
-                    <button onclick="switchAdminSubTab(2)" id="admin-subtab-2"
-                            class="admin-subtab px-5 py-2 text-sm font-semibold text-slate-600">Reports &amp; Export</button>
+                    <button id="admin-subtab-0" class="admin-subtab active px-5 py-2 text-sm font-semibold border-b-2 border-teal-700 text-teal-700">Manage Sessions</button>
+                    <button id="admin-subtab-1" class="admin-subtab px-5 py-2 text-sm font-semibold text-slate-600">All Bookings</button>
+                    <button id="admin-subtab-2" class="admin-subtab px-5 py-2 text-sm font-semibold text-slate-600">Reports &amp; Export</button>
                 </div>
                 
                 <!-- SUBTAB 0: Manage Sessions -->
                 <div id="admin-subview-0">
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="font-semibold">Scheduled Training Sessions</h4>
-                        <button onclick="showAddSessionModal()" 
-                                class="px-4 py-2 text-sm font-semibold flex items-center gap-x-2 bg-teal-700 hover:bg-teal-800 text-white rounded-2xl">
+                        <button class="px-4 py-2 text-sm font-semibold flex items-center gap-x-2 bg-teal-700 hover:bg-teal-800 text-white rounded-2xl">
                             <i class="fa-solid fa-plus"></i>
                             <span>Add New Session</span>
                         </button>
@@ -616,10 +593,9 @@
                 <div id="admin-subview-1" class="hidden">
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex-1 max-w-xs">
-                            <input id="admin-booking-search" oninput="filterAdminBookings()" type="text" placeholder="Search name, email or unit..." 
-                                   class="w-full text-sm border border-slate-300 px-4 py-2 rounded-2xl">
+                            <input id="admin-booking-search" type="text" placeholder="Search name, email or unit..." class="w-full text-sm border border-slate-300 px-4 py-2 rounded-2xl">
                         </div>
-                        <button onclick="exportBookingsCSV()" class="text-sm flex items-center px-4 py-2 gap-x-2 border border-slate-300 rounded-2xl hover:bg-slate-50">
+                        <button class="text-sm flex items-center px-4 py-2 gap-x-2 border border-slate-300 rounded-2xl hover:bg-slate-50">
                             <i class="fa-solid fa-download"></i>
                             <span>Export CSV</span>
                         </button>
@@ -662,7 +638,7 @@
                     </div>
                     
                     <div class="mt-6">
-                        <button onclick="exportSessionsCSV()" class="px-5 py-2.5 text-sm border border-slate-300 rounded-2xl flex items-center gap-x-2 hover:bg-white">
+                        <button class="px-5 py-2.5 text-sm border border-slate-300 rounded-2xl flex items-center gap-x-2 hover:bg-white">
                             <i class="fa-solid fa-file-export"></i>
                             <span>Export All Sessions (CSV)</span>
                         </button>
@@ -673,17 +649,17 @@
             
             <div class="px-6 py-3 bg-slate-50 text-xs text-slate-500 border-t flex items-center justify-between">
                 <div>Prototype v1.2 • Data persists in browser localStorage • For production use a secure backend</div>
-                <div onclick="hideAdminModal()" class="cursor-pointer hover:text-slate-700">Close</div>
+                <div class="cursor-pointer hover:text-slate-700">Close</div>
             </div>
         </div>
     </div>
 
     <!-- Session Edit/Add Modal -->
-    <div id="session-modal" onclick="if (event.target.id === 'session-modal') hideSessionModal()" class="hidden fixed inset-0 bg-black/60 z-[160] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="modal bg-white w-full max-w-md rounded-3xl overflow-hidden border border-slate-200">
+    <div id="session-modal" class="hidden fixed inset-0 bg-black/60 z-[160] flex items-center justify-center p-4">
+        <div class="modal bg-white w-full max-w-md rounded-3xl overflow-hidden border border-slate-200">
             <div class="px-6 py-4 border-b bg-slate-50 flex justify-between items-center">
                 <h3 id="session-modal-title" class="font-semibold text-lg">Add New Session</h3>
-                <button onclick="hideSessionModal()" class="text-xl leading-none text-slate-400 hover:text-red-500">&times;</button>
+                <button class="text-xl leading-none text-slate-400 hover:text-red-500">&times;</button>
             </div>
             <div class="p-6 space-y-4 text-sm">
                 <div>
@@ -728,1365 +704,16 @@
                 </div>
             </div>
             <div class="px-6 py-4 bg-slate-50 flex gap-x-3 border-t">
-                <button onclick="hideSessionModal()" class="flex-1 py-2.5 text-sm font-medium border border-slate-300 rounded-2xl">Cancel</button>
-                <button onclick="saveSessionFromModal()" id="session-save-btn"
-                        class="flex-1 py-2.5 text-sm font-semibold bg-teal-700 text-white rounded-2xl">Save Session</button>
+                <button class="flex-1 py-2.5 text-sm font-medium border border-slate-300 rounded-2xl">Cancel</button>
+                <button id="session-save-btn" class="flex-1 py-2.5 text-sm font-semibold bg-teal-700 text-white rounded-2xl">Save Session</button>
             </div>
         </div>
     </div>
 
     <footer class="text-center text-xs text-slate-400 py-6">
-        Medical Training Unit • Internal Booking System Prototype • Built for departmental use
+        MS&amp;T Medical Services &amp; Training • Internal Booking System Prototype • Built for departmental use
     </footer>
 
-    <script>
-        // ============================================
-        // CONFIG & STATE
-        // ============================================
-        let sessions = [];
-        let bookings = [];
-        let currentFilters = {};
-        let currentViewMode = 'list';
-        let currentCalendarDate = new Date(2026, 6, 1); // July 2026
-        let currentEditingSessionId = null;
-        let adminChartInstances = {};
-        let currentAdminSubTab = 0;
-
-        const COURSE_COLORS = {
-            'Wilderness Medical First Responder': { bg: 'bg-amber-100', text: 'text-amber-800', dot: '#d97706' },
-            'Standard First Aid': { bg: 'bg-blue-100', text: 'text-blue-800', dot: '#2563eb' },
-            'Basic Cardiac Life Support + AED': { bg: 'bg-emerald-100', text: 'text-emerald-800', dot: '#059669' }
-        };
-
-        // ============================================
-        // TAILWIND CONFIG
-        // ============================================
-        function initTailwind() {
-            document.documentElement.style.setProperty('--accent', '#0f766e');
-            
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            'display': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif']
-                        }
-                    }
-                }
-            };
-        }
-
-        // ============================================
-        // DATA PERSISTENCE (localStorage)
-        // ============================================
-        function saveToLocalStorage() {
-            localStorage.setItem('mtu_sessions', JSON.stringify(sessions));
-            localStorage.setItem('mtu_bookings', JSON.stringify(bookings));
-        }
-
-        function loadFromLocalStorage() {
-            const savedSessions = localStorage.getItem('mtu_sessions');
-            const savedBookings = localStorage.getItem('mtu_bookings');
-            
-            if (savedSessions && savedBookings) {
-                sessions = JSON.parse(savedSessions);
-                bookings = JSON.parse(savedBookings);
-                return true;
-            }
-            return false;
-        }
-
-        function seedInitialData() {
-            const today = new Date('2026-06-30');
-            
-            sessions = [
-                {
-                    id: 's1',
-                    date: '2026-07-08',
-                    time: '08:30 - 17:30',
-                    course: 'Standard First Aid',
-                    venue: 'Training Room 2, Level 4',
-                    instructor: 'Ms. Siti Nurhaliza',
-                    maxSlots: 16,
-                    bookedCount: 4
-                },
-                {
-                    id: 's2',
-                    date: '2026-07-10',
-                    time: '09:00 - 18:00 (16 hrs)',
-                    course: 'Wilderness Medical First Responder',
-                    venue: 'Outdoor Simulation Field & Classroom',
-                    instructor: 'Dr. Rajesh Kumar & Team',
-                    maxSlots: 10,
-                    bookedCount: 7
-                },
-                {
-                    id: 's3',
-                    date: '2026-07-15',
-                    time: '08:30 - 12:30',
-                    course: 'Basic Cardiac Life Support + AED',
-                    venue: 'Simulation Lab A',
-                    instructor: 'Mr. Lim Chee Wei',
-                    maxSlots: 8,
-                    bookedCount: 8
-                },
-                {
-                    id: 's4',
-                    date: '2026-07-22',
-                    time: '08:30 - 17:30',
-                    course: 'Standard First Aid',
-                    venue: 'Lecture Theatre 2',
-                    instructor: 'Sr. Fatimah Zahra',
-                    maxSlots: 20,
-                    bookedCount: 11
-                },
-                {
-                    id: 's5',
-                    date: '2026-07-28',
-                    time: '09:00 - 17:00',
-                    course: 'Wilderness Medical First Responder',
-                    venue: 'Outdoor Simulation Field',
-                    instructor: 'Paramedic Farhan bin Omar',
-                    maxSlots: 12,
-                    bookedCount: 3
-                },
-                {
-                    id: 's6',
-                    date: '2026-08-05',
-                    time: '08:30 - 12:30',
-                    course: 'Basic Cardiac Life Support + AED',
-                    venue: 'Simulation Lab B',
-                    instructor: 'Dr. Tan Mei Ling',
-                    maxSlots: 10,
-                    bookedCount: 6
-                },
-                {
-                    id: 's7',
-                    date: '2026-08-12',
-                    time: '08:30 - 17:30',
-                    course: 'Standard First Aid',
-                    venue: 'Training Room 1, Level 3',
-                    instructor: 'Ms. Priya d/o Rajan',
-                    maxSlots: 14,
-                    bookedCount: 9
-                },
-                {
-                    id: 's8',
-                    date: '2026-08-18',
-                    time: '09:00 - 18:00 (16 hrs)',
-                    course: 'Wilderness Medical First Responder',
-                    venue: 'Outdoor Simulation Field & Classroom',
-                    instructor: 'Dr. Rajesh Kumar & Team',
-                    maxSlots: 10,
-                    bookedCount: 2
-                },
-                {
-                    id: 's9',
-                    date: '2026-08-25',
-                    time: '08:30 - 12:30',
-                    course: 'Basic Cardiac Life Support + AED',
-                    venue: 'Simulation Lab A',
-                    instructor: 'Mr. Lim Chee Wei',
-                    maxSlots: 8,
-                    bookedCount: 1
-                },
-                {
-                    id: 's10',
-                    date: '2026-09-02',
-                    time: '08:30 - 17:30',
-                    course: 'Standard First Aid',
-                    venue: 'Training Room 2, Level 4',
-                    instructor: 'Sr. Aishah binti Hassan',
-                    maxSlots: 16,
-                    bookedCount: 0
-                },
-                {
-                    id: 's11',
-                    date: '2026-09-09',
-                    time: '09:00 - 17:00',
-                    course: 'Wilderness Medical First Responder',
-                    venue: 'Outdoor Simulation Field',
-                    instructor: 'Paramedic Farhan bin Omar',
-                    maxSlots: 10,
-                    bookedCount: 5
-                },
-                {
-                    id: 's12',
-                    date: '2026-09-16',
-                    time: '08:30 - 12:30',
-                    course: 'Basic Cardiac Life Support + AED',
-                    venue: 'Simulation Lab B',
-                    instructor: 'Dr. Tan Mei Ling',
-                    maxSlots: 12,
-                    bookedCount: 4
-                }
-            ];
-
-            bookings = [
-                { id: 'b1', sessionId: 's1', name: 'Dr. Ahmad bin Hassan', email: 'ahmad.hassan@hospital.sg', unit: 'Emergency Department', bookedAt: '2026-06-20T09:15:00' },
-                { id: 'b2', sessionId: 's1', name: 'Nurse Lim Wei Ling', email: 'wei.ling@hospital.sg', unit: 'General Ward - Ward 3', bookedAt: '2026-06-21T14:22:00' },
-                { id: 'b3', sessionId: 's2', name: 'Paramedic Suresh d/o Kumar', email: 'suresh.k@hospital.sg', unit: 'Ambulance / Paramedic', bookedAt: '2026-06-18T11:40:00' },
-                { id: 'b4', sessionId: 's2', name: 'Dr. Rachel Tan', email: 'rachel.tan@hospital.sg', unit: 'Intensive Care Unit (ICU)', bookedAt: '2026-06-19T16:05:00' },
-                { id: 'b5', sessionId: 's3', name: 'Staff Nurse Joseph Lee', email: 'joseph.lee@hospital.sg', unit: 'Operating Theatre', bookedAt: '2026-06-25T08:55:00' },
-                { id: 'b6', sessionId: 's4', name: 'Dr. Priya Menon', email: 'priya.menon@hospital.sg', unit: 'Outpatient Clinic', bookedAt: '2026-06-15T10:30:00' },
-                { id: 'b7', sessionId: 's4', name: 'Nurse Coordinator Amina Rahman', email: 'amina.r@hospital.sg', unit: 'Training & Education', bookedAt: '2026-06-22T13:10:00' },
-                { id: 'b8', sessionId: 's6', name: 'Dr. Wong Kai Feng', email: 'kai.feng@hospital.sg', unit: 'Emergency Department', bookedAt: '2026-06-28T09:45:00' },
-                { id: 'b9', sessionId: 's7', name: 'Sr. Nurse Chen Li Wei', email: 'li.wei@hospital.sg', unit: 'General Ward - Ward 7', bookedAt: '2026-06-27T15:20:00' },
-                { id: 'b10', sessionId: 's8', name: 'Paramedic Nurul Izzah', email: 'nurul.i@hospital.sg', unit: 'Ambulance / Paramedic', bookedAt: '2026-06-29T11:05:00' }
-            ];
-            
-            // Ensure bookedCount matches actual bookings
-            recalculateBookedCounts();
-            saveToLocalStorage();
-        }
-
-        function recalculateBookedCounts() {
-            sessions.forEach(session => {
-                const count = bookings.filter(b => b.sessionId === session.id).length;
-                session.bookedCount = count;
-            });
-        }
-
-        // ============================================
-        // UI HELPERS
-        // ============================================
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            
-            let icon = 'fa-check-circle';
-            let bg = 'bg-emerald-600';
-            
-            if (type === 'error') {
-                icon = 'fa-exclamation-circle';
-                bg = 'bg-red-600';
-            } else if (type === 'info') {
-                icon = 'fa-info-circle';
-                bg = 'bg-blue-600';
-            }
-            
-            toast.className = `toast flex items-center gap-x-3 px-5 py-3.5 rounded-2xl shadow-xl text-white text-sm ${bg} max-w-sm`;
-            toast.innerHTML = `
-                <i class="fa-solid ${icon} text-lg"></i>
-                <span>${message}</span>
-            `;
-            
-            container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.transition = 'all 0.3s ease';
-                toast.style.opacity = '0';
-                setTimeout(() => toast.remove(), 200);
-            }, 3200);
-        }
-
-        function switchTab(tabIndex) {
-            // Hide all views
-            document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
-            // Deactivate all tabs
-            document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.remove('active', 'text-teal-700', 'border-b-2', 'border-teal-700'));
-            document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.add('text-slate-600'));
-            
-            // Show selected
-            document.getElementById(`view-${tabIndex}`).classList.remove('hidden');
-            const activeTab = document.getElementById(`tab-${tabIndex}`);
-            activeTab.classList.add('active', 'text-teal-700', 'border-b-2', 'border-teal-700');
-            activeTab.classList.remove('text-slate-600');
-            
-            // Special actions per tab
-            if (tabIndex === 2) {
-                updateReportsStats();
-                setTimeout(initReportsCharts, 80);
-            }
-        }
-
-        function toggleViewMode(mode) {
-            currentViewMode = mode;
-            
-            const listView = document.getElementById('list-view');
-            const calendarView = document.getElementById('calendar-view');
-            const btnList = document.getElementById('btn-list-view');
-            const btnCal = document.getElementById('btn-calendar-view');
-            
-            if (mode === 'list') {
-                listView.style.display = 'block';
-                calendarView.classList.add('hidden');
-                btnList.classList.add('bg-teal-600', 'text-white');
-                btnList.classList.remove('text-slate-600');
-                btnCal.classList.remove('bg-teal-600', 'text-white');
-                btnCal.classList.add('text-slate-600');
-            } else {
-                listView.style.display = 'none';
-                calendarView.classList.remove('hidden');
-                btnCal.classList.add('bg-teal-600', 'text-white');
-                btnCal.classList.remove('text-slate-600');
-                btnList.classList.remove('bg-teal-600', 'text-white');
-                btnList.classList.add('text-slate-600');
-                
-                renderCalendar();
-            }
-        }
-
-        // ============================================
-        // FILTERS & RENDERING (USER VIEW)
-        // ============================================
-        function initCourseFilters() {
-            const container = document.getElementById('course-filters');
-            container.innerHTML = '';
-            
-            const courses = ['Wilderness Medical First Responder', 'Standard First Aid', 'Basic Cardiac Life Support + AED'];
-            const shortNames = ['WMFR', 'SFA', 'BCLS+AED'];
-            const colors = ['amber', 'blue', 'emerald'];
-            
-            courses.forEach((course, idx) => {
-                const div = document.createElement('div');
-                div.className = `px-3 py-1 text-xs font-semibold rounded-2xl cursor-pointer flex items-center gap-x-1.5 border border-${colors[idx]}-200 bg-white hover:bg-${colors[idx]}-50 transition-colors`;
-                div.innerHTML = `
-                    <input type="checkbox" id="course-${idx}" checked class="accent-teal-700 w-3.5 h-3.5">
-                    <label for="course-${idx}" class="cursor-pointer text-${colors[idx]}-700">${shortNames[idx]}</label>
-                `;
-                
-                const checkbox = div.querySelector('input');
-                checkbox.onchange = applyFilters;
-                
-                container.appendChild(div);
-            });
-        }
-
-        function getActiveCourseFilters() {
-            const active = [];
-            const courses = ['Wilderness Medical First Responder', 'Standard First Aid', 'Basic Cardiac Life Support + AED'];
-            
-            courses.forEach((course, idx) => {
-                const cb = document.getElementById(`course-${idx}`);
-                if (cb && cb.checked) active.push(course);
-            });
-            return active;
-        }
-
-        function applyFilters() {
-            currentFilters = {
-                search: document.getElementById('search-input').value.toLowerCase().trim(),
-                courses: getActiveCourseFilters(),
-                dateFrom: document.getElementById('date-from').value,
-                dateTo: document.getElementById('date-to').value
-            };
-            
-            renderSessionsTable();
-            
-            // If calendar is visible, re-render it too (to reflect any visual changes)
-            if (!document.getElementById('calendar-view').classList.contains('hidden')) {
-                renderCalendar();
-            }
-        }
-
-        function debounceFilter() {
-            clearTimeout(window.filterTimeout);
-            window.filterTimeout = setTimeout(() => {
-                applyFilters();
-            }, 280);
-        }
-
-        function resetFilters() {
-            document.getElementById('search-input').value = '';
-            document.getElementById('date-from').value = '';
-            document.getElementById('date-to').value = '';
-            
-            // Check all course filters
-            for (let i = 0; i < 3; i++) {
-                const cb = document.getElementById(`course-${i}`);
-                if (cb) cb.checked = true;
-            }
-            
-            currentFilters = {};
-            renderSessionsTable();
-            
-            if (!document.getElementById('calendar-view').classList.contains('hidden')) {
-                renderCalendar();
-            }
-        }
-
-        function filterSessions(sessionsList) {
-            let filtered = [...sessionsList];
-            
-            // Only future sessions for regular users (unless admin)
-            const todayStr = '2026-06-30';
-            filtered = filtered.filter(s => s.date >= todayStr);
-            
-            if (!currentFilters) return filtered;
-            
-            if (currentFilters.search) {
-                const term = currentFilters.search;
-                filtered = filtered.filter(s => 
-                    s.course.toLowerCase().includes(term) ||
-                    s.venue.toLowerCase().includes(term) ||
-                    s.instructor.toLowerCase().includes(term)
-                );
-            }
-            
-            if (currentFilters.courses && currentFilters.courses.length > 0) {
-                filtered = filtered.filter(s => currentFilters.courses.includes(s.course));
-            }
-            
-            if (currentFilters.dateFrom) {
-                filtered = filtered.filter(s => s.date >= currentFilters.dateFrom);
-            }
-            
-            if (currentFilters.dateTo) {
-                filtered = filtered.filter(s => s.date <= currentFilters.dateTo);
-            }
-            
-            return filtered;
-        }
-
-        function renderSessionsTable(filteredSessions = null) {
-            const tbody = document.getElementById('sessions-tbody');
-            const noResults = document.getElementById('no-results');
-            
-            if (!filteredSessions) {
-                filteredSessions = filterSessions(sessions);
-            }
-            
-            tbody.innerHTML = '';
-            
-            if (filteredSessions.length === 0) {
-                noResults.classList.remove('hidden');
-                return;
-            } else {
-                noResults.classList.add('hidden');
-            }
-            
-            filteredSessions.sort((a, b) => a.date.localeCompare(b.date));
-            
-            filteredSessions.forEach(session => {
-                const remaining = session.maxSlots - session.bookedCount;
-                const percent = Math.round((session.bookedCount / session.maxSlots) * 100);
-                
-                let availHTML = '';
-                if (remaining <= 0) {
-                    availHTML = `<span class="inline-flex items-center px-3 py-0.5 rounded-2xl text-xs font-bold bg-red-100 text-red-700">FULLY BOOKED</span>`;
-                } else if (remaining <= 3) {
-                    availHTML = `<div><span class="font-semibold text-orange-600">${remaining} / ${session.maxSlots}</span> <span class="text-xs text-slate-500">left</span><div class="mt-1 w-20 bg-orange-100 rounded h-1.5"><div class="slot-bar bg-orange-500" style="--percent: ${percent}%"></div></div></div>`;
-                } else {
-                    availHTML = `<div><span class="font-semibold text-emerald-600">${remaining} / ${session.maxSlots}</span> <span class="text-xs text-slate-500">left</span><div class="mt-1 w-20 bg-emerald-100 rounded h-1.5"><div class="slot-bar bg-emerald-600" style="--percent: ${percent}%"></div></div></div>`;
-                }
-                
-                const dateObj = new Date(session.date);
-                const dateFormatted = dateObj.toLocaleDateString('en-SG', { weekday: 'short', day: 'numeric', month: 'short' });
-                
-                const courseClass = session.course.includes('Wilderness') ? 'wmfr' : 
-                                   session.course.includes('Standard') ? 'sfa' : 'bcls';
-                
-                const row = document.createElement('tr');
-                row.className = 'hover:bg-slate-50 transition-colors';
-                row.innerHTML = `
-                    <td class="px-6 py-4">
-                        <div class="font-semibold">${dateFormatted}</div>
-                        <div class="text-xs text-slate-500">${session.time}</div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="course-badge ${courseClass}">${session.course}</span>
-                    </td>
-                    <td class="px-6 py-4 text-sm text-slate-700">${session.venue}</td>
-                    <td class="px-6 py-4 text-sm text-slate-700">${session.instructor}</td>
-                    <td class="px-6 py-4 text-center">
-                        ${availHTML}
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                        ${remaining > 0 ? 
-                            `<button onclick="openBookingModal('${session.id}')" class="px-5 py-2 text-xs font-semibold bg-teal-700 hover:bg-teal-800 transition-all active:scale-[0.985] text-white rounded-2xl">Book Now</button>` : 
-                            `<button disabled class="px-5 py-2 text-xs font-semibold bg-slate-200 text-slate-400 cursor-not-allowed rounded-2xl">Full</button>`
-                        }
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        // ============================================
-        // CALENDAR VIEW
-        // ============================================
-        function renderCalendar() {
-            const grid = document.getElementById('calendar-grid');
-            const monthLabel = document.getElementById('calendar-month');
-            
-            grid.innerHTML = '';
-            
-            const year = currentCalendarDate.getFullYear();
-            const month = currentCalendarDate.getMonth();
-            
-            monthLabel.textContent = currentCalendarDate.toLocaleDateString('en-SG', { month: 'long', year: 'numeric' });
-            
-            // Weekday headers
-            const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            weekdays.forEach(day => {
-                const header = document.createElement('div');
-                header.className = 'text-center text-[10px] font-bold py-2 bg-slate-100 text-slate-500 tracking-wider';
-                header.textContent = day;
-                grid.appendChild(header);
-            });
-            
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            const todayStr = new Date().toISOString().split('T')[0];
-            
-            // Empty cells before first day
-            for (let i = 0; i < firstDay; i++) {
-                const empty = document.createElement('div');
-                empty.className = 'h-24 border border-slate-100 bg-white';
-                grid.appendChild(empty);
-            }
-            
-            // Day cells
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                
-                const daySessions = sessions.filter(s => s.date === dateStr);
-                const hasEvents = daySessions.length > 0;
-                
-                const cell = document.createElement('div');
-                cell.className = `calendar-day h-24 border border-slate-100 bg-white p-1.5 text-xs flex flex-col ${hasEvents ? 'has-events cursor-pointer' : ''} ${dateStr === todayStr ? 'today' : ''}`;
-                
-                const dateNum = document.createElement('div');
-                dateNum.className = `font-semibold text-right pr-1 ${dateStr === todayStr ? 'text-teal-700' : 'text-slate-700'}`;
-                dateNum.textContent = day;
-                cell.appendChild(dateNum);
-                
-                if (hasEvents) {
-                    const eventsContainer = document.createElement('div');
-                    eventsContainer.className = 'mt-auto space-y-px overflow-hidden';
-                    
-                    daySessions.slice(0, 2).forEach(sess => {
-                        const badge = document.createElement('div');
-                        const color = COURSE_COLORS[sess.course] || { bg: 'bg-slate-200', text: 'text-slate-700' };
-                        badge.className = `text-[9px] px-1.5 py-px rounded ${color.bg} ${color.text} truncate`;
-                        badge.textContent = sess.course.split(' ').slice(0, 2).join(' ');
-                        eventsContainer.appendChild(badge);
-                    });
-                    
-                    if (daySessions.length > 2) {
-                        const more = document.createElement('div');
-                        more.className = 'text-[9px] text-teal-600 pl-1 font-medium';
-                        more.textContent = `+${daySessions.length - 2} more`;
-                        eventsContainer.appendChild(more);
-                    }
-                    
-                    cell.appendChild(eventsContainer);
-                    
-                    // Click to filter
-                    cell.onclick = () => {
-                        // Set date filter and switch to list
-                        document.getElementById('date-from').value = dateStr;
-                        document.getElementById('date-to').value = dateStr;
-                        applyFilters();
-                        toggleViewMode('list');
-                    };
-                }
-                
-                grid.appendChild(cell);
-            }
-            
-            // Fill remaining cells to complete grid
-            const totalCells = firstDay + daysInMonth;
-            const remaining = 7 - (totalCells % 7);
-            if (remaining < 7) {
-                for (let i = 0; i < remaining; i++) {
-                    const empty = document.createElement('div');
-                    empty.className = 'h-24 border border-slate-100 bg-white';
-                    grid.appendChild(empty);
-                }
-            }
-        }
-
-        function prevMonth() {
-            currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
-            renderCalendar();
-        }
-        
-        function nextMonth() {
-            currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
-            renderCalendar();
-        }
-        
-        function goToCurrentMonth() {
-            currentCalendarDate = new Date(2026, 6, 1);
-            renderCalendar();
-        }
-
-        // ============================================
-        // BOOKING FLOW
-        // ============================================
-        let currentBookingSession = null;
-
-        function openBookingModal(sessionId) {
-            const session = sessions.find(s => s.id === sessionId);
-            if (!session) return;
-            
-            currentBookingSession = session;
-            
-            const remaining = session.maxSlots - session.bookedCount;
-            if (remaining <= 0) {
-                showToast('This session is fully booked.', 'error');
-                return;
-            }
-            
-            // Populate modal
-            document.getElementById('modal-course-name').textContent = session.course;
-            document.getElementById('modal-session-info').innerHTML = `${new Date(session.date).toLocaleDateString('en-SG', { weekday: 'long', month: 'long', day: 'numeric' })} • ${session.time}`;
-            document.getElementById('modal-venue').textContent = session.venue;
-            document.getElementById('modal-instructor').textContent = session.instructor;
-            document.getElementById('modal-slots-left').innerHTML = `<span class="font-bold">${remaining}</span> slots remaining`;
-            
-            // Clear previous inputs
-            document.getElementById('book-name').value = '';
-            document.getElementById('book-email').value = '';
-            document.getElementById('book-unit').value = '';
-            
-            document.getElementById('booking-modal').classList.remove('hidden');
-            document.getElementById('booking-modal').classList.add('flex');
-        }
-
-        function hideBookingModal() {
-            const modal = document.getElementById('booking-modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-            currentBookingSession = null;
-        }
-
-        function fillDemoBookingData() {
-            document.getElementById('book-name').value = 'Dr. Ridzwan Wan';
-            document.getElementById('book-email').value = 'ridzwan.wan@hospital.sg';
-            document.getElementById('book-unit').value = 'Training & Education';
-        }
-
-        function confirmBooking() {
-            if (!currentBookingSession) return;
-            
-            const name = document.getElementById('book-name').value.trim();
-            const email = document.getElementById('book-email').value.trim();
-            const unit = document.getElementById('book-unit').value.trim();
-            
-            if (!name || !email || !unit) {
-                showToast('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Basic email validation
-            if (!email.includes('@') || !email.includes('.')) {
-                showToast('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Check for duplicate booking (same email + session)
-            const duplicate = bookings.find(b => b.sessionId === currentBookingSession.id && b.email.toLowerCase() === email.toLowerCase());
-            if (duplicate) {
-                showToast('You have already booked this session with this email.', 'error');
-                return;
-            }
-            
-            // Check slots again
-            const sessionIndex = sessions.findIndex(s => s.id === currentBookingSession.id);
-            if (sessions[sessionIndex].bookedCount >= sessions[sessionIndex].maxSlots) {
-                showToast('Sorry, this session just became fully booked.', 'error');
-                hideBookingModal();
-                renderSessionsTable();
-                return;
-            }
-            
-            // Create booking
-            const newBooking = {
-                id: 'b' + Date.now(),
-                sessionId: currentBookingSession.id,
-                name: name,
-                email: email,
-                unit: unit,
-                bookedAt: new Date().toISOString()
-            };
-            
-            bookings.push(newBooking);
-            sessions[sessionIndex].bookedCount++;
-            
-            saveToLocalStorage();
-            
-            hideBookingModal();
-            
-            // Success feedback
-            showToast(`Booking confirmed for ${currentBookingSession.course}! A confirmation email has been sent to ${email}.`);
-            
-            // Refresh UI
-            renderSessionsTable();
-            
-            // If calendar visible, refresh
-            if (!document.getElementById('calendar-view').classList.contains('hidden')) {
-                renderCalendar();
-            }
-            
-            // Optionally switch to My Bookings tab and prefill email
-            setTimeout(() => {
-                document.getElementById('my-email-input').value = email;
-                // Auto load their bookings
-                switchTab(1);
-                loadMyBookings();
-            }, 1800);
-        }
-
-        // ============================================
-        // MY BOOKINGS
-        // ============================================
-        function loadMyBookings() {
-            const email = document.getElementById('my-email-input').value.trim().toLowerCase();
-            const resultsDiv = document.getElementById('my-bookings-results');
-            const tbody = document.getElementById('my-bookings-tbody');
-            const countSpan = document.getElementById('my-bookings-count');
-            
-            if (!email) {
-                showToast('Please enter your email address.', 'error');
-                return;
-            }
-            
-            const myBookings = bookings.filter(b => b.email.toLowerCase() === email);
-            
-            tbody.innerHTML = '';
-            
-            if (myBookings.length === 0) {
-                resultsDiv.classList.remove('hidden');
-                countSpan.textContent = '0 bookings';
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="5" class="px-5 py-8 text-center text-slate-500">
-                            No bookings found for <span class="font-medium">${email}</span>.<br>
-                            <span class="text-xs">Make sure you used the same email when booking.</span>
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-            
-            resultsDiv.classList.remove('hidden');
-            countSpan.textContent = `${myBookings.length} booking${myBookings.length > 1 ? 's' : ''}`;
-            
-            myBookings.sort((a, b) => {
-                const sessA = sessions.find(s => s.id === a.sessionId);
-                const sessB = sessions.find(s => s.id === b.sessionId);
-                return (sessA?.date || '').localeCompare(sessB?.date || '');
-            });
-            
-            myBookings.forEach(booking => {
-                const session = sessions.find(s => s.id === booking.sessionId);
-                if (!session) return;
-                
-                const dateFormatted = new Date(session.date).toLocaleDateString('en-SG', { month: 'short', day: 'numeric' });
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="px-5 py-3.5">
-                        <div class="font-medium">${session.course}</div>
-                    </td>
-                    <td class="px-5 py-3.5 text-sm">${dateFormatted}<br><span class="text-xs text-slate-500">${session.time}</span></td>
-                    <td class="px-5 py-3.5 text-sm text-slate-600">${session.venue}</td>
-                    <td class="px-5 py-3.5 text-center">
-                        <span class="mini-badge bg-emerald-100 text-emerald-700 font-medium">Confirmed</span>
-                    </td>
-                    <td class="px-5 py-3.5 text-right">
-                        <button onclick="cancelMyBooking('${booking.id}', '${email}')" 
-                                class="text-xs px-3 py-1 text-red-600 hover:bg-red-50 rounded-xl">Cancel</button>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        function cancelMyBooking(bookingId, userEmail) {
-            if (!confirm('Are you sure you want to cancel this booking?')) return;
-            
-            const bookingIndex = bookings.findIndex(b => b.id === bookingId);
-            if (bookingIndex === -1) return;
-            
-            const sessionId = bookings[bookingIndex].sessionId;
-            
-            // Remove booking
-            bookings.splice(bookingIndex, 1);
-            
-            // Decrement count
-            const session = sessions.find(s => s.id === sessionId);
-            if (session && session.bookedCount > 0) {
-                session.bookedCount--;
-            }
-            
-            saveToLocalStorage();
-            
-            showToast('Booking cancelled successfully.');
-            
-            // Refresh my bookings list
-            document.getElementById('my-email-input').value = userEmail;
-            loadMyBookings();
-            
-            // Also refresh main table if visible
-            renderSessionsTable();
-        }
-
-        // ============================================
-        // ADMIN FUNCTIONS
-        // ============================================
-        function showAdminLogin() {
-            const password = prompt('Enter admin password (demo: admin123):');
-            if (password === 'admin123' || password === 'admin') {
-                document.getElementById('admin-modal').classList.remove('hidden');
-                document.getElementById('admin-modal').classList.add('flex');
-                switchAdminSubTab(0);
-                renderAdminSessionsTable();
-            } else if (password !== null) {
-                showToast('Incorrect password. Demo password is "admin123".', 'error');
-            }
-        }
-
-        function hideAdminModal() {
-            const modal = document.getElementById('admin-modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-            
-            // Cleanup charts
-            Object.values(adminChartInstances).forEach(chart => {
-                if (chart) chart.destroy();
-            });
-            adminChartInstances = {};
-        }
-
-        function switchAdminSubTab(tabIndex) {
-            currentAdminSubTab = tabIndex;
-            
-            // Hide all subviews
-            document.querySelectorAll('[id^="admin-subview-"]').forEach(el => el.classList.add('hidden'));
-            // Deactivate tabs
-            document.querySelectorAll('.admin-subtab').forEach(el => el.classList.remove('active', 'border-b-2', 'border-teal-700', 'text-teal-700'));
-            document.querySelectorAll('.admin-subtab').forEach(el => el.classList.add('text-slate-600'));
-            
-            // Show
-            document.getElementById(`admin-subview-${tabIndex}`).classList.remove('hidden');
-            const activeBtn = document.getElementById(`admin-subtab-${tabIndex}`);
-            activeBtn.classList.add('active', 'border-b-2', 'border-teal-700', 'text-teal-700');
-            activeBtn.classList.remove('text-slate-600');
-            
-            if (tabIndex === 0) {
-                renderAdminSessionsTable();
-            } else if (tabIndex === 1) {
-                renderAdminBookingsTable();
-            } else if (tabIndex === 2) {
-                setTimeout(initAdminCharts, 60);
-            }
-        }
-
-        function renderAdminSessionsTable() {
-            const tbody = document.getElementById('admin-sessions-tbody');
-            tbody.innerHTML = '';
-            
-            const sorted = [...sessions].sort((a, b) => a.date.localeCompare(b.date));
-            
-            sorted.forEach(session => {
-                const remaining = session.maxSlots - session.bookedCount;
-                const row = document.createElement('tr');
-                row.className = 'hover:bg-slate-50';
-                
-                const dateFormatted = new Date(session.date).toLocaleDateString('en-SG', { month: 'short', day: 'numeric' });
-                
-                row.innerHTML = `
-                    <td class="px-4 py-3 font-medium">${dateFormatted}</td>
-                    <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-xl ${COURSE_COLORS[session.course] ? COURSE_COLORS[session.course].bg + ' ' + COURSE_COLORS[session.course].text : 'bg-slate-100'}">${session.course}</span></td>
-                    <td class="px-4 py-3 text-xs text-slate-600">${session.venue}</td>
-                    <td class="px-4 py-3 text-xs">${session.instructor}</td>
-                    <td class="px-4 py-3 text-center font-mono text-sm">${session.maxSlots}</td>
-                    <td class="px-4 py-3 text-center">
-                        <span class="font-semibold ${remaining === 0 ? 'text-red-600' : 'text-emerald-600'}">${session.bookedCount}</span>
-                        <span class="text-xs text-slate-400">/ ${session.maxSlots}</span>
-                    </td>
-                    <td class="px-4 py-3">
-                        <div class="flex gap-x-1 justify-end">
-                            <button onclick="editSession('${session.id}')" class="px-3 py-1 text-xs border border-slate-300 hover:bg-white rounded-xl">Edit</button>
-                            <button onclick="deleteSession('${session.id}')" class="px-3 py-1 text-xs border border-red-200 text-red-600 hover:bg-red-50 rounded-xl">Delete</button>
-                            <button onclick="viewSessionBookings('${session.id}')" class="px-3 py-1 text-xs bg-teal-50 text-teal-700 hover:bg-teal-100 rounded-xl">Bookings</button>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-            
-            // Update admin stats
-            updateAdminStats();
-        }
-
-        function updateAdminStats() {
-            const totalSessions = sessions.length;
-            const totalBookings = bookings.length;
-            const totalCapacity = sessions.reduce((sum, s) => sum + s.maxSlots, 0);
-            const totalBooked = sessions.reduce((sum, s) => sum + s.bookedCount, 0);
-            const rate = totalCapacity > 0 ? Math.round((totalBooked / totalCapacity) * 100) : 0;
-            
-            document.getElementById('admin-stat-sessions').textContent = totalSessions;
-            document.getElementById('admin-stat-bookings').textContent = totalBookings;
-            document.getElementById('admin-stat-filled').textContent = `${totalBooked} / ${totalCapacity}`;
-            document.getElementById('admin-stat-rate').textContent = `${rate}%`;
-        }
-
-        function showAddSessionModal() {
-            currentEditingSessionId = null;
-            document.getElementById('session-modal-title').textContent = 'Add New Session';
-            document.getElementById('session-save-btn').textContent = 'Create Session';
-            
-            // Clear form
-            document.getElementById('sess-course').value = 'Standard First Aid';
-            document.getElementById('sess-date').value = '2026-09-20';
-            document.getElementById('sess-time').value = '08:30 - 17:30';
-            document.getElementById('sess-venue').value = '';
-            document.getElementById('sess-instructor').value = '';
-            document.getElementById('sess-slots').value = '12';
-            document.getElementById('sess-booked').value = '0';
-            
-            document.getElementById('session-modal').classList.remove('hidden');
-            document.getElementById('session-modal').classList.add('flex');
-        }
-
-        function editSession(sessionId) {
-            const session = sessions.find(s => s.id === sessionId);
-            if (!session) return;
-            
-            currentEditingSessionId = sessionId;
-            document.getElementById('session-modal-title').textContent = 'Edit Session';
-            document.getElementById('session-save-btn').textContent = 'Save Changes';
-            
-            document.getElementById('sess-course').value = session.course;
-            document.getElementById('sess-date').value = session.date;
-            document.getElementById('sess-time').value = session.time;
-            document.getElementById('sess-venue').value = session.venue;
-            document.getElementById('sess-instructor').value = session.instructor;
-            document.getElementById('sess-slots').value = session.maxSlots;
-            document.getElementById('sess-booked').value = session.bookedCount;
-            
-            document.getElementById('session-modal').classList.remove('hidden');
-            document.getElementById('session-modal').classList.add('flex');
-        }
-
-        function hideSessionModal() {
-            document.getElementById('session-modal').classList.remove('flex');
-            document.getElementById('session-modal').classList.add('hidden');
-            currentEditingSessionId = null;
-        }
-
-        function saveSessionFromModal() {
-            const course = document.getElementById('sess-course').value;
-            const date = document.getElementById('sess-date').value;
-            const time = document.getElementById('sess-time').value.trim();
-            const venue = document.getElementById('sess-venue').value.trim();
-            const instructor = document.getElementById('sess-instructor').value.trim();
-            const maxSlots = parseInt(document.getElementById('sess-slots').value) || 8;
-            let bookedCount = parseInt(document.getElementById('sess-booked').value) || 0;
-            
-            if (!date || !time || !venue || !instructor) {
-                showToast('Please fill all required fields.', 'error');
-                return;
-            }
-            
-            if (currentEditingSessionId) {
-                // Edit existing
-                const idx = sessions.findIndex(s => s.id === currentEditingSessionId);
-                if (idx !== -1) {
-                    // If reducing maxSlots below current booked, warn
-                    if (maxSlots < sessions[idx].bookedCount) {
-                        if (!confirm(`Warning: New max slots (${maxSlots}) is lower than current bookings (${sessions[idx].bookedCount}). Continue?`)) {
-                            return;
-                        }
-                        bookedCount = Math.min(bookedCount, maxSlots);
-                    }
-                    
-                    sessions[idx].course = course;
-                    sessions[idx].date = date;
-                    sessions[idx].time = time;
-                    sessions[idx].venue = venue;
-                    sessions[idx].instructor = instructor;
-                    sessions[idx].maxSlots = maxSlots;
-                    sessions[idx].bookedCount = bookedCount;
-                    
-                    showToast('Session updated successfully.');
-                }
-            } else {
-                // Add new
-                const newSession = {
-                    id: 's' + Date.now(),
-                    date,
-                    time,
-                    course,
-                    venue,
-                    instructor,
-                    maxSlots,
-                    bookedCount: Math.min(bookedCount, maxSlots)
-                };
-                sessions.push(newSession);
-                showToast('New session created.');
-            }
-            
-            saveToLocalStorage();
-            hideSessionModal();
-            
-            // Refresh admin table
-            renderAdminSessionsTable();
-            // Also refresh user view if open
-            renderSessionsTable();
-        }
-
-        function deleteSession(sessionId) {
-            const session = sessions.find(s => s.id === sessionId);
-            if (!session) return;
-            
-            const hasBookings = bookings.some(b => b.sessionId === sessionId);
-            
-            let message = `Delete "${session.course}" on ${session.date}?`;
-            if (hasBookings) {
-                message += `\n\nThis will also permanently delete ${bookings.filter(b => b.sessionId === sessionId).length} booking(s).`;
-            }
-            
-            if (!confirm(message)) return;
-            
-            // Remove associated bookings
-            bookings = bookings.filter(b => b.sessionId !== sessionId);
-            
-            // Remove session
-            sessions = sessions.filter(s => s.id !== sessionId);
-            
-            saveToLocalStorage();
-            
-            showToast('Session and associated bookings deleted.');
-            renderAdminSessionsTable();
-            renderSessionsTable();
-        }
-
-        function viewSessionBookings(sessionId) {
-            const session = sessions.find(s => s.id === sessionId);
-            if (!session) return;
-            
-            const sessionBookings = bookings.filter(b => b.sessionId === sessionId);
-            
-            let html = `<div class="p-1"><h4 class="font-semibold mb-1">${session.course}</h4><p class="text-xs text-slate-500 mb-3">${new Date(session.date).toLocaleDateString('en-SG')} • ${session.venue}</p>`;
-            
-            if (sessionBookings.length === 0) {
-                html += `<p class="text-sm text-slate-500 py-4">No bookings yet for this session.</p>`;
-            } else {
-                html += `<div class="max-h-80 overflow-auto border border-slate-100 rounded-2xl"><table class="w-full text-sm"><thead class="bg-slate-50"><tr><th class="px-4 py-2 text-left text-xs">NAME</th><th class="px-4 py-2 text-left text-xs">EMAIL</th><th class="px-4 py-2 text-left text-xs">UNIT</th><th class="px-4 py-2 w-12"></th></tr></thead><tbody>`;
-                
-                sessionBookings.forEach(b => {
-                    html += `<tr class="border-t"><td class="px-4 py-2.5">${b.name}</td><td class="px-4 py-2.5 text-xs text-slate-600">${b.email}</td><td class="px-4 py-2.5 text-xs">${b.unit}</td><td class="px-4 py-2.5"><button onclick="cancelBookingFromAdmin('${b.id}', '${sessionId}'); document.getElementById('admin-modal').click();" class="text-red-500 hover:text-red-600 text-xs">× Cancel</button></td></tr>`;
-                });
-                
-                html += `</tbody></table></div>`;
-            }
-            
-            html += `</div>`;
-            
-            // Simple modal using alert for prototype (or we can create a better one)
-            const win = window.open('', '_blank', 'width=520,height=520');
-            win.document.write(`
-                <html><head><title>Bookings - ${session.course}</title>
-                <style>body{font-family: system-ui; padding:20px; font-size:14px}</style>
-                </head><body>${html}<p style="margin-top:20px"><button onclick="window.close()">Close</button></p></body></html>
-            `);
-        }
-
-        function cancelBookingFromAdmin(bookingId, sessionId) {
-            if (!confirm('Cancel this booking?')) return;
-            
-            const idx = bookings.findIndex(b => b.id === bookingId);
-            if (idx === -1) return;
-            
-            bookings.splice(idx, 1);
-            
-            const session = sessions.find(s => s.id === sessionId);
-            if (session && session.bookedCount > 0) session.bookedCount--;
-            
-            saveToLocalStorage();
-            
-            // Refresh admin views
-            renderAdminBookingsTable();
-            renderAdminSessionsTable();
-            showToast('Booking cancelled.');
-        }
-
-        function renderAdminBookingsTable(filtered = null) {
-            const tbody = document.getElementById('admin-bookings-tbody');
-            tbody.innerHTML = '';
-            
-            let toShow = filtered || bookings;
-            
-            // Join with session data
-            const enriched = toShow.map(b => {
-                const sess = sessions.find(s => s.id === b.sessionId);
-                return { ...b, session: sess };
-            }).filter(e => e.session); // only valid
-            
-            enriched.sort((a, b) => (b.bookedAt || '').localeCompare(a.bookedAt || ''));
-            
-            enriched.forEach(item => {
-                const dateShort = item.session ? new Date(item.session.date).toLocaleDateString('en-SG', {month:'short', day:'numeric'}) : '';
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="px-4 py-3 font-medium">${item.name}</td>
-                    <td class="px-4 py-3 text-xs text-slate-600">${item.email}</td>
-                    <td class="px-4 py-3 text-xs">${item.unit}</td>
-                    <td class="px-4 py-3">
-                        <div class="text-xs">${item.session ? item.session.course : ''}</div>
-                        <div class="text-[10px] text-slate-400">${dateShort}</div>
-                    </td>
-                    <td class="px-4 py-3 text-center text-xs text-slate-500">${new Date(item.bookedAt).toLocaleDateString('en-SG')}</td>
-                    <td class="px-4 py-3 text-right">
-                        <button onclick="cancelBookingFromAdmin('${item.id}', '${item.sessionId}')" class="text-red-500 hover:text-red-700 px-2">Cancel</button>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        function filterAdminBookings() {
-            const term = document.getElementById('admin-booking-search').value.toLowerCase().trim();
-            if (!term) {
-                renderAdminBookingsTable();
-                return;
-            }
-            
-            const filtered = bookings.filter(b => 
-                b.name.toLowerCase().includes(term) ||
-                b.email.toLowerCase().includes(term) ||
-                b.unit.toLowerCase().includes(term)
-            );
-            
-            renderAdminBookingsTable(filtered);
-        }
-
-        function exportBookingsCSV() {
-            if (bookings.length === 0) {
-                showToast('No bookings to export.', 'info');
-                return;
-            }
-            
-            let csv = 'Name,Email,Unit,Course,Date,Time,Venue,Booked At\n';
-            
-            bookings.forEach(b => {
-                const sess = sessions.find(s => s.id === b.sessionId);
-                if (!sess) return;
-                
-                csv += `"${b.name}","${b.email}","${b.unit}","${sess.course}","${sess.date}","${sess.time}","${sess.venue}","${b.bookedAt}"\n`;
-            });
-            
-            downloadCSV(csv, 'mtu_bookings_export.csv');
-        }
-
-        function exportSessionsCSV() {
-            if (sessions.length === 0) return;
-            
-            let csv = 'Date,Time,Course,Venue,Instructor,Max Slots,Booked Count,Available\n';
-            
-            sessions.forEach(s => {
-                const avail = s.maxSlots - s.bookedCount;
-                csv += `"${s.date}","${s.time}","${s.course}","${s.venue}","${s.instructor}",${s.maxSlots},${s.bookedCount},${avail}\n`;
-            });
-            
-            downloadCSV(csv, 'mtu_sessions_export.csv');
-        }
-
-        function downloadCSV(csvContent, filename) {
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.href = url;
-            link.download = filename;
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            showToast('CSV exported successfully.');
-        }
-
-        // ============================================
-        // CHARTS (Reports)
-        // ============================================
-        let bookingsChartInstance = null;
-
-        function updateReportsStats() {
-            const upcoming = sessions.filter(s => s.date >= '2026-06-30').length;
-            const totalBooked = bookings.length;
-            const totalCap = sessions.reduce((a, s) => a + s.maxSlots, 0);
-            const occ = totalCap > 0 ? Math.round((sessions.reduce((a, s) => a + s.bookedCount, 0) / totalCap) * 100) : 0;
-            
-            // Find most popular
-            const courseCounts = {};
-            bookings.forEach(b => {
-                const sess = sessions.find(s => s.id === b.sessionId);
-                if (sess) courseCounts[sess.course] = (courseCounts[sess.course] || 0) + 1;
-            });
-            
-            let popular = 'Standard First Aid';
-            let maxCount = 0;
-            Object.keys(courseCounts).forEach(c => {
-                if (courseCounts[c] > maxCount) {
-                    maxCount = courseCounts[c];
-                    popular = c;
-                }
-            });
-            
-            document.getElementById('stat-upcoming').textContent = upcoming;
-            document.getElementById('stat-bookings').textContent = totalBooked;
-            document.getElementById('stat-occupancy').textContent = occ + '%';
-            document.getElementById('stat-popular').textContent = popular.length > 22 ? popular.substring(0, 20) + '...' : popular;
-        }
-
-        function initReportsCharts() {
-            // Destroy previous
-            if (bookingsChartInstance) {
-                bookingsChartInstance.destroy();
-                bookingsChartInstance = null;
-            }
-            
-            const ctx = document.getElementById('bookings-chart');
-            if (!ctx) return;
-            
-            // Count bookings per course
-            const counts = {
-                'Wilderness Medical First Responder': 0,
-                'Standard First Aid': 0,
-                'Basic Cardiac Life Support + AED': 0
-            };
-            
-            bookings.forEach(b => {
-                const sess = sessions.find(s => s.id === b.sessionId);
-                if (sess && counts.hasOwnProperty(sess.course)) {
-                    counts[sess.course]++;
-                }
-            });
-            
-            bookingsChartInstance = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(counts),
-                    datasets: [{
-                        data: Object.values(counts),
-                        backgroundColor: ['#d97706', '#2563eb', '#059669'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '68%',
-                    plugins: {
-                        legend: { position: 'bottom', labels: { boxWidth: 10, padding: 18, font: { size: 11 } } }
-                    }
-                }
-            });
-        }
-
-        function initAdminCharts() {
-            // Destroy old
-            if (adminChartInstances.occupancy) adminChartInstances.occupancy.destroy();
-            if (adminChartInstances.trend) adminChartInstances.trend.destroy();
-            
-            // Occupancy pie
-            const occCtx = document.getElementById('admin-occupancy-chart');
-            if (occCtx) {
-                const data = {
-                    'WMFR': 0,
-                    'SFA': 0,
-                    'BCLS': 0
-                };
-                
-                sessions.forEach(s => {
-                    const key = s.course.includes('Wilderness') ? 'WMFR' : s.course.includes('Standard') ? 'SFA' : 'BCLS';
-                    data[key] += s.bookedCount;
-                });
-                
-                adminChartInstances.occupancy = new Chart(occCtx, {
-                    type: 'pie',
-                    data: {
-                        labels: Object.keys(data),
-                        datasets: [{
-                            data: Object.values(data),
-                            backgroundColor: ['#d97706', '#2563eb', '#059669']
-                        }]
-                    },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }
-                });
-            }
-            
-            // Trend bar (simple monthly)
-            const trendCtx = document.getElementById('admin-trend-chart');
-            if (trendCtx) {
-                adminChartInstances.trend = new Chart(trendCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Jul 2026', 'Aug 2026', 'Sep 2026'],
-                        datasets: [{
-                            label: 'Bookings',
-                            data: [22, 31, 18],
-                            backgroundColor: '#0f766e'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: { y: { beginAtZero: true } },
-                        plugins: { legend: { display: false } }
-                    }
-                });
-            }
-        }
-
-        // ============================================
-        // INITIALIZATION
-        // ============================================
-        function initializeApp() {
-            initTailwind();
-            
-            // Load or seed data
-            const hasData = loadFromLocalStorage();
-            if (!hasData) {
-                seedInitialData();
-            } else {
-                // Ensure counts are correct in case of manual edits
-                recalculateBookedCounts();
-            }
-            
-            // Init course filter checkboxes
-            initCourseFilters();
-            
-            // Render initial user view (list)
-            renderSessionsTable();
-            
-            // Set default date filters to show near future
-            // (optional - leave blank for all upcoming)
-            
-            // Show list view by default
-            document.getElementById('list-view').style.display = 'block';
-            document.getElementById('calendar-view').classList.add('hidden');
-            
-            // Keyboard support for search
-            const searchInput = document.getElementById('search-input');
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') applyFilters();
-            });
-            
-            // Initial toast / welcome (disabled for clean start)
-            // setTimeout(() => showToast('Welcome! All data is stored locally in your browser.'), 2200);
-            
-            // Expose some functions for debugging / advanced use
-            window.MTU_DEBUG = { sessions, bookings, resetDemoData: () => { localStorage.clear(); location.reload(); } };
-            
-            console.log('%c[MTU Booking] Prototype initialized successfully. Admin password: admin123', 'color:#64748b');
-        }
-
-        function resetDemoData() {
-            if (confirm('Reset all demo data to initial state? This cannot be undone.')) {
-                localStorage.removeItem('mtu_sessions');
-                localStorage.removeItem('mtu_bookings');
-                location.reload();
-            }
-        }
-
-        // Boot the app
-        window.onload = initializeApp;
-    </script>
+    
 </body>
 </html>
